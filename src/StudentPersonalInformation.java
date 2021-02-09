@@ -1,28 +1,19 @@
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
-class StudentPersonalInformation extends StudentEducationProcessInformation {
+public class StudentPersonalInformation {
 
-    String address;
-    LocalDate birthday;
-    DateTimeFormatter formatDateView = DateTimeFormatter.ofPattern( "dd.MM.yyyy");
-    Long phoneNumber;
+    public LocalDate birthday;
+    public String address;
+    public Long phoneNumber;
 
-    public StudentPersonalInformation(String address, LocalDate birthday,
-                                      Long phoneNumber, int id, int course,
-                                      String faculty, int group) {
-        super(id, course, faculty, group);
-        this.address = address;
+    public StudentPersonalInformation(LocalDate birthday) {
         this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
+    public StudentPersonalInformation(LocalDate birthday, String address, Long phoneNumber) {
+        this.birthday = birthday;
         this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
     public LocalDate getBirthday() {
@@ -33,6 +24,14 @@ class StudentPersonalInformation extends StudentEducationProcessInformation {
         this.birthday = birthday;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public Long getPhoneNumber() {
         return phoneNumber;
     }
@@ -40,6 +39,11 @@ class StudentPersonalInformation extends StudentEducationProcessInformation {
     public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-}
 
+    @Override
+    public String toString() {
+        return "StudentPersonalInformation{" + "birthday=" + birthday + ", address='"
+                + address + '\'' + ", phoneNumber=" + phoneNumber + '}';
+    }
+}
 

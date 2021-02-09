@@ -1,60 +1,52 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-class Student extends StudentPersonalInformation {
+public class Student {
 
-    String surname;
-    String name;
-    String patronymic;
+    public StudentFullName studentFullName;
+    public StudentPersonalInformation studentPersonalInformation;
+    public StudentEducationProcessInformation studentEducationProcessInformation;
 
-    public Student(String surname, String name, String patronymic, String address,
-                   LocalDate birthday, Long phoneNumber, int id, int course,
-                   String faculty, int group) {
-
-        super(address, birthday, phoneNumber, id, course, faculty, group);
-        this.surname = surname;
-        this.name = name;
-        this.patronymic = patronymic;
-
+    public Student(String surname, String name, String patronymic) {
+        this.studentFullName = new StudentFullName(surname, name, patronymic);
     }
 
-    public String getSurname() {
-        return surname;
+    public Student(String surname, String name, String patronymic,
+                   LocalDate birthday, String address, Long phoneNumber) {
+        this(surname, name, patronymic);
+        this.studentPersonalInformation = new StudentPersonalInformation
+                (birthday, address, phoneNumber);
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public Student(String surname, String name, String patronymic,
+                   LocalDate birthday, String address, Long phoneNumber,
+                   int id, int course, String faculty, int group) {
+        this(surname, name, patronymic, birthday, address, phoneNumber);
+        this.studentEducationProcessInformation = new StudentEducationProcessInformation
+                (id, course, faculty, group);
     }
 
-    public String getName() {
-        return name;
+    public String getFaculty() {
+        return studentEducationProcessInformation.faculty;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getCourse() {
+        return studentEducationProcessInformation.course;
     }
 
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
+    DateTimeFormatter formatDateView = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     @Override
     public String toString() {
-        return "Student{" + "surname='" + surname + '\'' + ", name='" + name
-                + '\'' + ", patronymic='" + patronymic + '\'' + ", address='"
-                + address + '\'' + ", birthday=" + birthday.format(formatDateView)
-                + ", phoneNumber=" + phoneNumber + ", id=" + id + ", course="
-                + course + ", faculty='" + faculty + '\'' + ", group="
-                + group + '}';
+        return "Student{" + "surname='" + studentFullName.surname + '\''
+                + ", name='" + studentFullName.name + '\''
+                + ", patronymic='" + studentFullName.patronymic + '\''
+                + ", birthday=" + studentPersonalInformation.birthday.format(formatDateView)
+                + ", address='" + studentPersonalInformation.address + '\''
+                + ", phoneNumber=" + studentPersonalInformation.phoneNumber
+                + ", id=" + studentEducationProcessInformation.id
+                + ", course=" + studentEducationProcessInformation.course
+                + ", faculty='" + studentEducationProcessInformation.faculty + '\''
+                + ", group=" + studentEducationProcessInformation.group + '}';
     }
 }
-
-
-
-
-
-
-

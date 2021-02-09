@@ -1,16 +1,24 @@
+import java.lang.reflect.Array;
+
 public class StudentEducationProcessInformation {
 
-    int id;
-    int course;
-    String faculty;
-    int group;
+    public int id;
+    public int course;
+    public String faculty;
+    public int group;
 
-    public StudentEducationProcessInformation(int id, int course, String faculty,
-                                              int group) {
-        this.id = id;
+    public StudentEducationProcessInformation(int course,
+                                              String faculty, int group) {
         this.course = course;
         this.faculty = faculty;
         this.group = group;
+    }
+
+    public StudentEducationProcessInformation(int id, int course,
+                                              String faculty, int group) {
+
+        this (course,faculty,group);
+        this.id = id;
     }
 
     public int getId() {
@@ -44,7 +52,15 @@ public class StudentEducationProcessInformation {
     public void setGroup(int group) {
         this.group = group;
     }
+
+    @Override
+    public String toString() {
+        return "StudentEducationProcessInformation{" + "id=" + id +
+                ", course=" + course + ", faculty='" + faculty + '\'' +
+                ", group=" + group + '}';
+    }
 }
+
 
 
 
