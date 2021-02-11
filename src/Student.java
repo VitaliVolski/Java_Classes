@@ -8,24 +8,16 @@ public class Student {
 
     public Student(StudentFullName studentFullName) {
 
-        this.studentFullName = new StudentFullName(studentFullName.surname,
-                studentFullName.name,studentFullName.patronymic);
+        this.studentFullName = studentFullName;
     }
 
     public Student(StudentFullName studentFullName,
                    StudentPersonalInformation studentPersonalInformation,
                    StudentEducationProcessInformation studentEducationProcessInformation) {
 
-        this.studentFullName = new StudentFullName(studentFullName.surname,
-                studentFullName.name,studentFullName.patronymic);
-
-        this.studentPersonalInformation = new StudentPersonalInformation
-                (studentPersonalInformation.birthday, studentPersonalInformation.address,
-                        studentPersonalInformation.phoneNumber);
-
-        this.studentEducationProcessInformation = new StudentEducationProcessInformation
-                (studentEducationProcessInformation.id, studentEducationProcessInformation.course,
-                        studentEducationProcessInformation.faculty,studentEducationProcessInformation.group);
+        this.studentFullName = studentFullName;
+        this.studentPersonalInformation = studentPersonalInformation;
+        this.studentEducationProcessInformation = studentEducationProcessInformation;
     }
 
     public String getFaculty() {
