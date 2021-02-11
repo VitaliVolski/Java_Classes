@@ -1,9 +1,9 @@
 public class StudentEducationProcessInformation {
 
-    public int id;
-    public int course;
-    public String faculty;
-    public int group;
+    private int id;
+    private int course;
+    private String faculty;
+    private int group;
 
     public StudentEducationProcessInformation(int course,
                                               String faculty, int group) {

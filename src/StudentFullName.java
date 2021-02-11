@@ -1,8 +1,8 @@
 public class StudentFullName {
 
-    public String surname;
-    public String name;
-    public String patronymic;
+    private String surname;
+    private String name;
+    private String patronymic;
 
     public StudentFullName(String surname) {
         this.surname = surname;

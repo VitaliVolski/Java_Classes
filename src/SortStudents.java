@@ -51,7 +51,7 @@ public class SortStudents {
 
         System.out.println("\nSort by current faculty:");
         for (Student student : BSU) {
-            if (student.studentEducationProcessInformation.faculty.equals("ФПМ")) {
+            if (student.studentEducationProcessInformation.getFaculty().equals("ФПМ")) {
                 System.out.println(student);
             }
         }
@@ -66,16 +66,16 @@ public class SortStudents {
         System.out.println("\nlist from current date:");
         for (Student student : BSU) {
             LocalDate dateForComparing = LocalDate.of(2002, 12, 31);
-            if (student.studentPersonalInformation.birthday.isAfter(dateForComparing)) {
+            if (student.studentPersonalInformation.getBirthday().isAfter(dateForComparing)) {
                 System.out.println(student);
             }
         }
 
         System.out.println("\nSort be current group, course and faculty:");
         for (Student student : BSU) {
-            if ((student.studentEducationProcessInformation.faculty.equals("ФМО")
-                    && student.studentEducationProcessInformation.course == 4)
-                    && (student.studentEducationProcessInformation.group == 3)) {
+            if ((student.studentEducationProcessInformation.getFaculty().equals("ФМО")
+                    && student.studentEducationProcessInformation.getCourse() == 4)
+                    && (student.studentEducationProcessInformation.getGroup() == 3)) {
                 System.out.println(student);
             }
         }

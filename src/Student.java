@@ -21,26 +21,27 @@ public class Student {
     }
 
     public String getFaculty() {
-        return studentEducationProcessInformation.faculty;
+        return studentEducationProcessInformation.getFaculty();
     }
 
     public int getCourse() {
-        return studentEducationProcessInformation.course;
+        return studentEducationProcessInformation.getCourse();
     }
 
     DateTimeFormatter formatDateView = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-        @Override
+            @Override
     public String toString() {
-        return "Student{" + "surname='" + studentFullName.surname + '\''
-                + ", name='" + studentFullName.name + '\''
-                + ", patronymic='" + studentFullName.patronymic + '\''
-                + ", birthday=" + studentPersonalInformation.birthday.format(formatDateView)
-                + ", address='" + studentPersonalInformation.address + '\''
-                + ", phoneNumber=" + studentPersonalInformation.phoneNumber
-                + ", id=" + studentEducationProcessInformation.id
-                + ", course=" + studentEducationProcessInformation.course
-                + ", faculty='" + studentEducationProcessInformation.faculty + '\''
-                + ", group=" + studentEducationProcessInformation.group + '}';
+        return "Student{" + "surname='" + studentFullName.getSurname() + '\''
+                + ", name='" + studentFullName.getName() + '\''
+                + ", patronymic='" + studentFullName.getPatronymic() + '\''
+                + ", birthday=" + studentPersonalInformation.getBirthday().format(formatDateView)
+                + ", address='" + studentPersonalInformation.getAddress() + '\''
+                + ", phoneNumber=" + studentPersonalInformation.getPhoneNumber()
+                + ", id=" + studentEducationProcessInformation.getId()
+                + ", course=" + studentEducationProcessInformation.getCourse()
+                + ", faculty='" + studentEducationProcessInformation.getFaculty() + '\''
+                + ", group=" + studentEducationProcessInformation.getGroup() + '}';
     }
 }
+

@@ -2,9 +2,9 @@ import java.time.LocalDate;
 
 public class StudentPersonalInformation {
 
-    public LocalDate birthday;
-    public String address;
-    public Long phoneNumber;
+    private LocalDate birthday;
+    private String address;
+    private Long phoneNumber;
 
     public StudentPersonalInformation(LocalDate birthday) {
         this.birthday = birthday;
