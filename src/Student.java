@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Student {
@@ -7,23 +6,26 @@ public class Student {
     public StudentPersonalInformation studentPersonalInformation;
     public StudentEducationProcessInformation studentEducationProcessInformation;
 
-    public Student(String surname, String name, String patronymic) {
-        this.studentFullName = new StudentFullName(surname, name, patronymic);
+    public Student(StudentFullName studentFullName) {
+
+        this.studentFullName = new StudentFullName(studentFullName.surname,
+                studentFullName.name,studentFullName.patronymic);
     }
 
-    public Student(String surname, String name, String patronymic,
-                   LocalDate birthday, String address, Long phoneNumber) {
-        this(surname, name, patronymic);
+    public Student(StudentFullName studentFullName,
+                   StudentPersonalInformation studentPersonalInformation,
+                   StudentEducationProcessInformation studentEducationProcessInformation) {
+
+        this.studentFullName = new StudentFullName(studentFullName.surname,
+                studentFullName.name,studentFullName.patronymic);
+
         this.studentPersonalInformation = new StudentPersonalInformation
-                (birthday, address, phoneNumber);
-    }
+                (studentPersonalInformation.birthday, studentPersonalInformation.address,
+                        studentPersonalInformation.phoneNumber);
 
-    public Student(String surname, String name, String patronymic,
-                   LocalDate birthday, String address, Long phoneNumber,
-                   int id, int course, String faculty, int group) {
-        this(surname, name, patronymic, birthday, address, phoneNumber);
         this.studentEducationProcessInformation = new StudentEducationProcessInformation
-                (id, course, faculty, group);
+                (studentEducationProcessInformation.id, studentEducationProcessInformation.course,
+                        studentEducationProcessInformation.faculty,studentEducationProcessInformation.group);
     }
 
     public String getFaculty() {
@@ -36,7 +38,7 @@ public class Student {
 
     DateTimeFormatter formatDateView = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    @Override
+        @Override
     public String toString() {
         return "Student{" + "surname='" + studentFullName.surname + '\''
                 + ", name='" + studentFullName.name + '\''

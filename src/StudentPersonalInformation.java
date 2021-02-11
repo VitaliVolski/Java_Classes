@@ -10,7 +10,8 @@ public class StudentPersonalInformation {
         this.birthday = birthday;
     }
 
-    public StudentPersonalInformation(LocalDate birthday, String address, Long phoneNumber) {
+    public StudentPersonalInformation(LocalDate birthday, String address,
+                                      Long phoneNumber) {
         this.birthday = birthday;
         this.address = address;
         this.phoneNumber = phoneNumber;

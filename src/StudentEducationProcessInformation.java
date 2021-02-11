@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 public class StudentEducationProcessInformation {
 
     public int id;
